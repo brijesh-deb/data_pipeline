@@ -14,9 +14,9 @@ commands = """
     /usr/local/Cellar/apache-spark/3.0.1/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1 fetch_data.py;
     """
 
-spark_task = BashOperator(
+fetch_data = BashOperator(
     task_id='spark-task',
     bash_command=commands,
     dag=dag)
 
-start_task >> spark_task
+start_task >> fetch_data
