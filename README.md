@@ -9,7 +9,7 @@
 ### Spark setup
 - Install Spark (used 3.0.1 for this sample)
 ### AWS S3 setup
-- Create a S3 bucket
+- AWS account and S3 bucket
 - Access Key and Secret key for the AWS account
 ### Airflow setup
 - Install Airflow
