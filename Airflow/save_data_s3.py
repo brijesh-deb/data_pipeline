@@ -9,7 +9,7 @@ dag = DAG('S3_data_save_dag', description='DAG to save data in S3',
 
 start_task = DummyOperator(task_id='start_task', dag=dag)
 
-commands = "/usr/local/Cellar/apache-spark/3.0.1/libexec/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1,com.amazonaws:aws-java-sdk:1.11.633,org.apache.hadoop:hadoop-aws:3.2.0 /Users/philips/Documents/Study_code/Spark/spark-samples/spark_kafka_s3.py"
+commands = "/usr/local/Cellar/apache-spark/3.0.1/libexec/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1,com.amazonaws:aws-java-sdk:1.11.633,org.apache.hadoop:hadoop-aws:3.2.0 /Users/philips/Documents/Study_code/Spark/spark-samples/data_pipeline.py"
 
 save_data = BashOperator(
     task_id='spark-save-task',
