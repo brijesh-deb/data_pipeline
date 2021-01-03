@@ -11,24 +11,25 @@
 ### AWS S3 setup
 - Create a S3 bucket
 - Access Key and Secret key for the AWS account
-## Kafka for data ingestion
-- Initialize Producer console and send message
+### Airflow setup
+- Install Airflow
+
+## Sample: Airflow to trigger Spark Job which fetches data from Kafka topic
+- Ingest data to kafka topic
   - *kafka-console-producer --broker-list localhost:9092 --topic patient-data*
   - >This is a test kafka message
-## Spark for batch data processing
-- Change Spark master settings in fetch_data.py based on Spark installation.
-- Start spark: *./start-all.sh*
-- Run spark job(fetch_data.py) manually
-  - *spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1 fetch_data.py*
-  - Should display count of message in Kafka topic
-## Airflow for scheduling the Spark job
-- Use Apache Airflow to automate scheduling the Spark job instead of manually triggering that
-- Install Airflow
-- Update spark_dag.py based on file location
-- Place spark_dag.py in "dags" folder under Airflow home directory
-- Start Airflow
-  - *airflow initdb*
-  - *airflow webserver*
-- Start Airflow scheduler
-  - *airflow scheduler*
-- Go to Airflow UI and trigger "spark_job_dag"
+- Change Spark job and test
+  - Change Spark master settings in fetch_data.py based on Spark installation.
+  - Start spark: *./start-all.sh*
+  - Run spark job(fetch_data.py) manually
+    - *spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1 fetch_data.py*
+    - Should display count of message in Kafka topic
+- Use Apache Airflow to automate scheduling the Spark job
+  - Update spark_dag.py based on file location
+  - Place spark_dag.py in "dags" folder under Airflow home directory
+  - Start Airflow
+    - *airflow initdb*
+    - *airflow webserver*
+  - Start Airflow scheduler
+    - *airflow scheduler*
+  - Go to Airflow UI and trigger "spark_job_dag"
