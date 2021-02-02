@@ -53,3 +53,5 @@
   - Start Airflow scheduler
     - *airflow scheduler*
   - Go to Airflow UI and trigger "S3_data_save_dag"
+## References:
+  - https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
